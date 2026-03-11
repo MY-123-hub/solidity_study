@@ -2,7 +2,7 @@
 pragma solidity ^0.8.25;
 
 import {Test, console} from "forge-std/Test.sol";
-import {CarbonTrade_001} from "../src/carbonTrader_001.sol";
+import {CarbonTrade_001} from "../src/CarbonTrader_001.sol";
 import {MockERC20} from "./MockERC20.sol";
 
 contract CarbonTrade_001_Test is Test{
@@ -33,7 +33,8 @@ contract CarbonTrade_001_Test is Test{
         // 给买家1和买家2各分配1000个USDT
         usdt.mint(buyer1, 1000 * 10**6);
         usdt.mint(buyer2, 1000 * 10**6);
-
+        console.log("USDT Address:", address(usdt));
+        console.log("CarbonTrade Address:", address(carbonTrade_001));
     }
 
     //测试卖家能不能发起拍卖
