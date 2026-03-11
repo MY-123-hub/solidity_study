@@ -1,0 +1,167 @@
+/* === Modern Web3 DApp UI === */
+
+:root {
+  --bg-gradient-start: #0f0f11;
+  --bg-gradient-end: #1a1a2e;
+  --card-bg: rgba(255, 255, 255, 0.08); /* Semi-transparent for glassmorphism */
+  --card-border: rgba(137, 247, 254, 0.2); /* Light cyan border */
+  --glow-shadow: 0 0 20px rgba(137, 247, 254, 0.3); /* Cyan glow */
+  --primary-accent: #89f7fe; /* Light Cyan */
+  --secondary-accent: #66a6ff; /* Light Blue */
+  --text-primary: #e0e0e0;
+  --text-secondary: #a9a9a9;
+  --btn-gradient-start: #66a6ff; /* Blue */
+  --btn-gradient-end: #89f7fe; /* Cyan */
+}
+
+body {
+  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-container {
+  max-width: 1200px; /* Max width for content */
+  width: 100%;
+  padding: 1rem; /* Responsive padding */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.main-header {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--primary-accent);
+  text-shadow: 0 0 15px var(--primary-accent), 0 0 25px rgba(137, 247, 254, 0.5);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px; /* Rounded corners */
+  padding: 2rem;
+  backdrop-filter: blur(15px); /* Stronger blur for glassmorphism */
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: var(--glow-shadow), 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Deeper shadow */
+  width: 100%;
+  max-width: 450px; /* Adjusted max-width for cards */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card h4 {
+  margin-top: 0;
+  color: var(--secondary-accent);
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 0.8rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Responsive grid */
+  gap: 2rem;
+  width: 100%;
+}
+
+.input-field {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid #444;
+  border-radius: 10px; /* More rounded input */
+  color: var(--text-primary);
+  font-size: 1rem;
+  padding: 0.8rem 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--primary-accent);
+  box-shadow: 0 0 15px rgba(137, 247, 254, 0.5);
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, var(--btn-gradient-start) 0%, var(--btn-gradient-end) 100%);
+  border: none;
+  border-radius: 10px; /* Rounded buttons */
+  color: #fff; /* White text for contrast */
+  font-weight: 600;
+  padding: 0.9rem 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s, background 0.3s;
+  width: 100%;
+  font-size: 1.05rem;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.02); /* Slight lift and scale */
+  box-shadow: 0 0 30px var(--primary-accent); /* Stronger glow on hover */
+  background: linear-gradient(90deg, var(--btn-gradient-end) 0%, var(--btn-gradient-start) 100%); /* Reverse gradient */
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: none;
+}
+
+.btn-primary:disabled {
+  background: #333;
+  color: #777;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  opacity: 0.6;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.balance-info p, .trade-details p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  display: flex;
+  justify-content: space-between;
+}
+
+.balance-info strong, .trade-details strong {
+  color: var(--text-primary);
+}
+
+.trade-details {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(0,0,0,0.2);
+  border-radius: 8px;
+  border: 1px dashed var(--card-border);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-header {
+    font-size: 2rem;
+  }
+  .card {
+    padding: 1.5rem;
+  }
+  .grid-layout {
+    grid-template-columns: 1fr; /* Single column on small screens */
+  }
+}
